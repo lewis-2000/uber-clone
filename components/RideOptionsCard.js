@@ -91,7 +91,7 @@ const RidOptionsCard = () => {
                 }
             />
 
-            <View>
+            <View style={tw`border-t border-gray-200 mt-auto`}>
                 <TouchableOpacity style={tw`bg-black py-3 m-3 ${!selected && 'bg-gray-300'}`} disabled={!selected}>
                     <Text style={tw`text-center text-xl text-white`}>Choose {selected?.title}</Text>
                 </TouchableOpacity>

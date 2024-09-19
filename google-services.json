@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675603966750",
+    "project_id": "ride-298f4",
+    "storage_bucket": "ride-298f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675603966750:android:c20a855542556cebed370f",
+        "android_client_info": {
+          "package_name": "com.flammy.ride"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAARtrXzDE1lKy9bJhfz7zQZpmf5Ava2uQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
