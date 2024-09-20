@@ -5,8 +5,10 @@ import tw from 'tailwind-react-native-classnames'
 
 
 import NavOptions from '../components/NavOptions'
-import SearchPlaces from '../components/SearchPlaces'
+// import SearchPlaces from '../components/SearchPlaces'
+import GooglePlacesAutoCompleteSearch from '../components/MapScreen/GooglePlacesAutoCompleteSearch'
 import NavFavourites from '../components/NavFavourites'
+import Accounts from '../components/Accounts'
 
 const HomeScreen = () => {
     return (
@@ -16,13 +18,17 @@ const HomeScreen = () => {
 
                 {/* Search Component */}
                 <View style={tw`px-4`}>
-                    <SearchPlaces />
+                    {/* <SearchPlaces /> */}
+                    <GooglePlacesAutoCompleteSearch />
+
                 </View>
 
 
                 <NavOptions />
 
                 <NavFavourites />
+
+                <Accounts />
             </View>
         </SafeAreaView>
     )

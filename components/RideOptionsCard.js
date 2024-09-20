@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, View, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { useSelector } from 'react-redux';
-import { selectDestination, selectOrigin } from '../slices/navSlice';
+import { selectDestination, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice';
 import tw from 'tailwind-react-native-classnames';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
@@ -20,6 +20,9 @@ const RidOptionsCard = () => {
 
 
     const destination = useSelector(selectDestination);
+    const travelTimeInformation = useSelector(selectTravelTimeInformation);
+    console.log(travelTimeInformation)
+
     const navigation = useNavigation();
 
     const data = [
@@ -49,16 +52,19 @@ const RidOptionsCard = () => {
         },
     ]
 
+    //Surge Rate 
+    const SURGE_CHARGE_RATE = 1.5;
+
     return (
         <SafeAreaView style={tw`bg-white flex-1`}>
             <View>
-                <View style={tw`pb-4`}>
+                <View style={tw`mb-7`}>
                     <TouchableOpacity
-                        style={tw`absolute top-0 left-5 p-3 rounded-full bg-gray-200`}
+                        style={tw`absolute mt-auto mb-auto left-5 p-3 rounded-full`}
                         onPress={() => navigation.navigate('NavigateCard')}>
                         <Icon name='chevron-left' type='fontawesome' />
                     </TouchableOpacity>
-                    <Text style={tw`text-center py-1 text-xl font-semibold`}>Select a ride </Text>
+                    <Text style={tw`text-center py-1 text-xl font-semibold`}>Select a ride - {travelTimeInformation?.distance.text} </Text>
 
                 </View>
 
@@ -82,10 +88,17 @@ const RidOptionsCard = () => {
 
                             <View style={tw`-ml-6`}>
                                 <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                                <Text>Travel time ...</Text>
+                                <Text>{travelTimeInformation?.duration.text} Travel time</Text>
                             </View>
 
-                            <Text style={tw`text-xl`}>$ 99</Text>
+                            <Text style={tw`text-xl`}>
+                                {new Intl.NumberFormat('en-gb', {
+                                    style: 'currency',
+                                    currency: 'KSH'
+                                }).format(
+                                    (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 10
+                                )}
+                            </Text>
                         </TouchableOpacity>
                     )
                 }

@@ -3,9 +3,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Map from '../components/Map'
+// import Map from '../components/Map'
 // import RoutingMap from '../components/SearchPlacesDestinationwithroutingMap'
 // import OpenMap from '../components/OpenStreetMapWithRouting'
+import { GOOGLE_MAPS_APIKEY } from '@env'
+import GoogleMapComponent from '../components/MapScreen/GoogleMapComponent'
 import NavigateCard from '../components/NavigateCard'
 import RideOptionsCard from '../components/RideOptionsCard'
 
@@ -17,7 +19,8 @@ const MapScreen = () => {
     return (
         <View>
             <View style={tw`h-1/2`}>
-                <Map />
+                <GoogleMapComponent />
+                {/* <Map /> */}
                 {/* <OpenMap /> */}
             </View>
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import 'react-native-gesture-handler'
@@ -8,16 +8,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Store from './store';
 import HomeScreen from './screens/HomeScreen';
 import MapScreen from './screens/MapScreen';
-
-
-// 1). Setup Redux with store reducer
-// 2). Setup Tailwind React native Classes
-
+import AccountScreen from './screens/AccountScreen';
 
 export default function App() {
   //Create a stack navigator
   const Stack = createStackNavigator();
-
 
   return (
     <Provider store={Store}>
@@ -38,6 +33,13 @@ export default function App() {
 
               <Stack.Screen name='MapScreen'
                 component={MapScreen}
+                options={{
+                  headerShown: false,
+                }} />
+
+              {/* Add AccountScreen */}
+              <Stack.Screen name='AccountScreen'
+                component={AccountScreen}
                 options={{
                   headerShown: false,
                 }} />

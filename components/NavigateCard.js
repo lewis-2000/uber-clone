@@ -6,7 +6,8 @@ import tw from 'tailwind-react-native-classnames'
 import { useNavigation } from '@react-navigation/native';
 
 
-import SearchPlacesDestination from './SearchPlacesDestination'
+// import SearchPlacesDestination from './SearchPlacesDestination'
+import GoogleMapAutoCompleteSearchComponentDestination from './MapScreen/GoogleMapAutoCompleteSearchComponentDestination'
 import NavFavourites from './NavFavourites'
 
 
@@ -18,7 +19,8 @@ const NavigateCard = () => {
             <View style={tw``}>
                 <Text style={tw`text-center py-1 text-xl font-semibold`}>Good Morning User</Text>
                 <View style={tw`border-t border-gray-200 flex-shrink`}>
-                    <SearchPlacesDestination />
+                    {/* <SearchPlacesDestination /> */}
+                    <GoogleMapAutoCompleteSearchComponentDestination />
                 </View>
                 <NavFavourites />
             </View>
